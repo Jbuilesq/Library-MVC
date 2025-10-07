@@ -1,3 +1,84 @@
-@model IEnumerable<LibraryMVC.Models.Client>
+@model IEnumerable<Client>
 
-<h1>Hola mundo</h1>
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white ">
+            <h2 class="justify-content-center">Clientes</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-3 m">
+                <div class="card">
+                    <div class="card-header bg-secondary text-white ">
+                        <h3 class="d-flex d-inline-flex">Crear </h3>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="Create">
+                            <div>
+                                <label for="Name">Nombre</label>
+                                <input type="text" class="form-control" name="Name" placeholder="nombre" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="Email">Correo</label>
+                                <input type="email" class="form-control" name="Email" placeholder="Email" required/>
+                            </div>
+                            <div>
+                                <label for="DNI">Numero De Identificación</label>
+                                <input type="number" class="form-control" name="DNI"
+                                       placeholder="Numero de identificación"
+                                       required/>
+                            </div>
+                            <div>
+                                <label for="Phone">Celular</label>
+                                <input type="number" class="form-control" name="Phone" placeholder="numero" required/>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-9">
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Numero de Id</th>
+                        <th>Celular</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    @if (Model != null)
+                    {
+                        foreach (var client in Model)
+                        {
+                            <tr>
+                                <td>@client.Id</td>
+                                <td>@client.Name</td>
+                                <td>@client.Email</td>
+                                <td>@client.DNI</td>
+                                <td>@client.Phone</td>
+                                <td>
+                                    <a class="btn btn-primary" asp-action="Edit" asp-controller="Client"
+                                       asp-route-id="@client.Id">Editar</a>
+                                    <a class="btn btn-danger" asp-action="Delete" asp-controller="Client"
+                                       asp-route-id="@client.Id">Eliminar</a>
+                                    <a class="btn btn-info" asp-action="Details" asp-route-id="@client.Id"
+                                       asp-controller="Client">Detalles</a>
+
+                                </td>
+
+                            </tr>
+                        }
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

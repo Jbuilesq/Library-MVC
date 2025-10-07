@@ -1,5 +1,6 @@
 using LibraryMVC.Infracestruture;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryMVC.Controllers;
 
@@ -12,8 +13,9 @@ public class BookController : Controller
         _context = context;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var books = await _context.Books.ToListAsync();
+        return View(books);
     }
 }

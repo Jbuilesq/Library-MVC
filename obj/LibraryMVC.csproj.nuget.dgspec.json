@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/jb/Escritorio/JB/LibraryMVC/LibraryMVC.csproj": {}
+    "C:\\Users\\lorem\\OneDrive\\Escritorio\\c#\\Library-MVC\\LibraryMVC.csproj": {}
   },
   "projects": {
-    "/home/jb/Escritorio/JB/LibraryMVC/LibraryMVC.csproj": {
+    "C:\\Users\\lorem\\OneDrive\\Escritorio\\c#\\Library-MVC\\LibraryMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jb/Escritorio/JB/LibraryMVC/LibraryMVC.csproj",
+        "projectUniqueName": "C:\\Users\\lorem\\OneDrive\\Escritorio\\c#\\Library-MVC\\LibraryMVC.csproj",
         "projectName": "LibraryMVC",
-        "projectPath": "/home/jb/Escritorio/JB/LibraryMVC/LibraryMVC.csproj",
-        "packagesPath": "/home/jb/.nuget/packages/",
-        "outputPath": "/home/jb/Escritorio/JB/LibraryMVC/obj/",
+        "projectPath": "C:\\Users\\lorem\\OneDrive\\Escritorio\\c#\\Library-MVC\\LibraryMVC.csproj",
+        "packagesPath": "C:\\Users\\lorem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lorem\\OneDrive\\Escritorio\\c#\\Library-MVC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/jb/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\lorem\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,6 +32,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -42,7 +47,7 @@
               "target": "Package",
               "version": "[9.0.9, )"
             },
-            "Microsoft.EntityFrameworkCore.design": {
+            "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
@@ -72,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/var/snap/dotnet/common/dotnet/sdk/8.0.120/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.414/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
