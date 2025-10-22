@@ -1,0 +1,26 @@
+@model Book
+
+<div class="container mt-5">
+    <h2>Editar Libro</h2>
+    <form asp-action="Edit">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label>CodeId</label>
+            <input class="form-control" asp-for="CodeId" />
+        </div>
+        <div class="form-group">
+            <label>Título</label>
+            <input class="form-control" asp-for="Title" />
+        </div>
+        <div class="form-group">
+            <label>Autor</label>
+            <input class="form-control" asp-for="Author" />
+        </div>
+        <div class="form-group">
+            <label>Ejemplares</label>
+            <input class="form-control" asp-for="NumberOfShares" />
+        </div>
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

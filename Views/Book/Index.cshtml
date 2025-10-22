@@ -2,3 +2,74 @@
     ViewData["Title"] = "Libros";
 }
 
+@model IEnumerable<Book>
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white ">
+            <h2 class="justify-content-center">Libros</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header bg-secondary text-white ">
+                        <h3>Crear</h3>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="Create">
+                            <div>
+                                <label>CodeId</label>
+                                <input type="text" class="form-control" name="CodeId" required />
+                            </div>
+                            <div>
+                                <label>Título</label>
+                                <input type="text" class="form-control" name="Title" required />
+                            </div>
+                            <div>
+                                <label>Autor</label>
+                                <input type="text" class="form-control" name="Author" required />
+                            </div>
+                            <div>
+                                <label>Ejemplares</label>
+                                <input type="number" class="form-control" name="NumberOfShares" required />
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>CodeId</th>
+                            <th>Título</th>
+                            <th>Autor</th>
+                            <th>Ejemplares</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var book in Model)
+                        {
+                            <tr>
+                                <td>@book.Id</td>
+                                <td>@book.CodeId</td>
+                                <td>@book.Title</td>
+                                <td>@book.Author</td>
+                                <td>@book.NumberOfShares</td>
+                                <td>
+                                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@book.Id">Editar</a>
+                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@book.Id">Eliminar</a>
+                                    <a class="btn btn-info" asp-action="Details" asp-route-id="@book.Id">Detalles</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

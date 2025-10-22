@@ -1,0 +1,18 @@
+@model LibraryMVC.Models.Loan
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-info text-white">
+            <h2>Detalles del Préstamo</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Id:</strong> @Model.Id</p>
+            <p><strong>Fecha de Préstamo:</strong> @Model.DateLoan.ToString("yyyy-MM-dd")</p>
+            <p><strong>Fecha de Devolución:</strong> @Model.DateReturn.ToString("yyyy-MM-dd")</p>
+            <p><strong>Cliente:</strong> @Model.Client?.Name</p>
+            <p><strong>Libro:</strong> @Model.Book?.Title</p>
+
+            <a asp-action="Index" class="btn btn-secondary mt-2">Volver</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+@model Book
+
+<div class="container mt-5">
+    <h2>Detalles del Libro</h2>
+    <dl class="row">
+        <dt class="col-sm-3">ID</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+
+        <dt class="col-sm-3">CodeId</dt>
+        <dd class="col-sm-9">@Model.CodeId</dd>
+
+        <dt class="col-sm-3">Título</dt>
+        <dd class="col-sm-9">@Model.Title</dd>
+
+        <dt class="col-sm-3">Autor</dt>
+        <dd class="col-sm-9">@Model.Author</dd>
+
+        <dt class="col-sm-3">Ejemplares</dt>
+        <dd class="col-sm-9">@Model.NumberOfShares</dd>
+    </dl>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>

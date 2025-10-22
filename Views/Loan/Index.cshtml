@@ -1,1 +1,42 @@
-<h2>Prestamos</h2>
+@model IEnumerable<Loan>
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white ">
+            <h2 class="justify-content-center">Préstamos</h2>
+        </div>
+
+        <div class="text-end m-2">
+            <a class="btn btn-success" asp-action="Create">Nuevo préstamo</a>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Libro</th>
+                <th>Fecha Préstamo</th>
+                <th>Fecha Devolución</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var loan in Model)
+            {
+                <tr>
+                    <td>@loan.Id</td>
+                    <td>@loan.Client.Name</td>
+                    <td>@loan.Book.Title</td>
+                    <td>@loan.DateLoan.ToShortDateString()</td>
+                    <td>@loan.DateReturn.ToShortDateString()</td>
+                    <td>
+                        <a class="btn btn-info" asp-action="Details" asp-route-id="@loan.Id">Detalles</a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@loan.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

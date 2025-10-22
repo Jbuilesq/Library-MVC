@@ -1,0 +1,41 @@
+@model LibraryMVC.Models.Loan
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h2>Editar Préstamo</h2>
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="Id" />
+
+                <div>
+                    <label for="DateLoan">Fecha de Préstamo</label>
+                    <input asp-for="DateLoan" class="form-control" type="date" required />
+                </div>
+
+                <div>
+                    <label for="DateReturn">Fecha de Devolución</label>
+                    <input asp-for="DateReturn" class="form-control" type="date" required />
+                </div>
+
+                <div>
+                    <label for="UserId">Cliente</label>
+                    <select asp-for="UserId" class="form-control" required asp-items="@(new SelectList(ViewBag.Clients, "Id", "Name"))">
+                        <option value="">Seleccione un cliente</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="BookId">Libro</label>
+                    <select asp-for="BookId" class="form-control" required asp-items="@(new SelectList(ViewBag.Books, "Id", "Title"))">
+                        <option value="">Seleccione un libro</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+                <a asp-action="Index" class="btn btn-secondary mt-2">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>

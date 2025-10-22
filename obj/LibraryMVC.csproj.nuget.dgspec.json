@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lorem\\OneDrive\\Escritorio\\c#\\Library-MVC\\LibraryMVC.csproj": {}
+    "/home/jb/Escritorio/JB/Library-MVC/LibraryMVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lorem\\OneDrive\\Escritorio\\c#\\Library-MVC\\LibraryMVC.csproj": {
+    "/home/jb/Escritorio/JB/Library-MVC/LibraryMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lorem\\OneDrive\\Escritorio\\c#\\Library-MVC\\LibraryMVC.csproj",
+        "projectUniqueName": "/home/jb/Escritorio/JB/Library-MVC/LibraryMVC.csproj",
         "projectName": "LibraryMVC",
-        "projectPath": "C:\\Users\\lorem\\OneDrive\\Escritorio\\c#\\Library-MVC\\LibraryMVC.csproj",
-        "packagesPath": "C:\\Users\\lorem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lorem\\OneDrive\\Escritorio\\c#\\Library-MVC\\obj\\",
+        "projectPath": "/home/jb/Escritorio/JB/Library-MVC/LibraryMVC.csproj",
+        "packagesPath": "/home/jb/.nuget/packages/",
+        "outputPath": "/home/jb/Escritorio/JB/Library-MVC/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lorem\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/jb/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -77,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.414/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.121/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

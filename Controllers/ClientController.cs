@@ -11,7 +11,7 @@ public class ClientController : Controller
     private readonly DbAppContext _context;
 
     public ClientController(DbAppContext context)
-    {
+    { 
         _context = context;
     }
 

@@ -23,5 +23,5 @@ public class Loan
         BookId = bookId;
     }
     
-    public Loan(){}
+    
 }
