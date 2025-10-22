@@ -1,42 +1,95 @@
-@model IEnumerable<Loan>
+@model IEnumerable<LibraryMVC.Models.Loan>
 
 <div class="container mt-5">
     <div class="card shadow">
-        <div class="card-header bg-primary text-white ">
-            <h2 class="justify-content-center">Préstamos</h2>
+        <div class="card-header bg-primary text-white">
+            <h2>Préstamos</h2>
         </div>
+        <div class="row">
 
-        <div class="text-end m-2">
-            <a class="btn btn-success" asp-action="Create">Nuevo préstamo</a>
+            <!-- Formulario Crear Préstamo -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header bg-secondary text-white">
+                        <h3>Crear Préstamo</h3>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="Create" method="post">
+
+                            <div class="form-group mb-2">
+                                <label for="DateLoan">Fecha de Préstamo</label>
+                                <input name="DateLoan" type="date" class="form-control" required />
+                            </div>
+
+                            <div class="form-group mb-2">
+                                <label for="DateReturn">Fecha de Devolución</label>
+                                <input name="DateReturn" type="date" class="form-control" required />
+                            </div>
+
+                            <div class="form-group mb-2">
+                                <label for="UserId">Cliente</label>
+                                <select name="UserId" class="form-control" required>
+                                    <option value="">Seleccione un cliente</option>
+                                    @foreach (var client in ViewBag.Clients as List<LibraryMVC.Models.Client>)
+                                    {
+                                        <option value="@client.Id">@client.Name</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="form-group mb-2">
+                                <label for="BookId">Libro</label>
+                                <select name="BookId" class="form-control" required>
+                                    <option value="">Seleccione un libro</option>
+                                    @foreach (var book in ViewBag.Books as List<LibraryMVC.Models.Book>)
+                                    {
+                                        <option value="@book.Id">@book.Title</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla de Préstamos -->
+            <div class="col-md-9">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Fecha Préstamo</th>
+                            <th>Fecha Devolución</th>
+                            <th>Cliente</th>
+                            <th>Libro</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            foreach (var loan in Model)
+                            {
+                                <tr>
+                                    <td>@loan.Id</td>
+                                    <td>@loan.DateLoan.ToString("yyyy-MM-dd")</td>
+                                    <td>@loan.DateReturn.ToString("yyyy-MM-dd")</td>
+                                    <td>@loan.Client?.Name</td>
+                                    <td>@loan.Book?.Title</td>
+                                    <td>
+                                        <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@loan.Id">Editar</a>
+                                        <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@loan.Id">Detalles</a>
+                                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@loan.Id">Eliminar</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+
         </div>
-
-        <table class="table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Cliente</th>
-                <th>Libro</th>
-                <th>Fecha Préstamo</th>
-                <th>Fecha Devolución</th>
-                <th>Acciones</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach (var loan in Model)
-            {
-                <tr>
-                    <td>@loan.Id</td>
-                    <td>@loan.Client.Name</td>
-                    <td>@loan.Book.Title</td>
-                    <td>@loan.DateLoan.ToShortDateString()</td>
-                    <td>@loan.DateReturn.ToShortDateString()</td>
-                    <td>
-                        <a class="btn btn-info" asp-action="Details" asp-route-id="@loan.Id">Detalles</a>
-                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@loan.Id">Eliminar</a>
-                    </td>
-                </tr>
-            }
-            </tbody>
-        </table>
     </div>
 </div>

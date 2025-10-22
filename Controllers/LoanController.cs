@@ -2,7 +2,6 @@ using LibraryMVC.Infracestruture;
 using LibraryMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LibraryMVC.Controllers;
 
@@ -17,6 +16,9 @@ public class LoanController : Controller
 
     public async Task<IActionResult> Index()
     {
+        ViewBag.Clients = await _context.Clients.ToListAsync();
+        ViewBag.Books = await _context.Books.ToListAsync();
+
         var loans = await _context.Loans
             .Include(l => l.Client)
             .Include(l => l.Book)
@@ -25,29 +27,34 @@ public class LoanController : Controller
         return View(loans);
     }
 
-    [HttpGet]
-    public async Task<IActionResult> Create()
-    {
-        ViewBag.Clients = await _context.Clients.ToListAsync();
-        ViewBag.Books = await _context.Books.ToListAsync();
-
-        return View();
-    }
-
     [HttpPost]
     public async Task<IActionResult> Create([Bind("DateLoan,DateReturn,UserId,BookId")] Loan loan)
     {
         if (ModelState.IsValid)
         {
-            _context.Loans.Add(loan);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                _context.Loans.Add(loan);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch(Exception ex)
+            {
+                ModelState.AddModelError("", "Error guardando préstamo: " + ex.Message);
+            }
         }
 
         ViewBag.Clients = await _context.Clients.ToListAsync();
         ViewBag.Books = await _context.Books.ToListAsync();
-        return View(loan);
+
+        var loans = await _context.Loans
+            .Include(l => l.Client)
+            .Include(l => l.Book)
+            .ToListAsync();
+
+        return View("Index", loans);
     }
+
 
     [HttpGet]
     public async Task<IActionResult> Edit(int? id)

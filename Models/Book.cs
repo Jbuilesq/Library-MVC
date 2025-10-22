@@ -17,4 +17,7 @@ public class Book
         NumberOfShares = numberOfShares;
     }
     
+    public Book()
+    {
+    }
 }
